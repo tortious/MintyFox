@@ -1,0 +1,134 @@
+/********************Overflow display & customize page Modifications and Coloring   ***********************************/
+
+/********************************   Customization Page Mods & Overflow Coloring *********************************/
+
+#customization-palette-container {
+    background: #313131 !important;}
+
+#customization-panel-container {
+    background: linear-gradient(75deg, #010101 0%,#1b1b1b 30%,#0d0d0d 46%,#010101 50%,#0a0a0a 53%,#1b1b1b 70%,#010101 100%) !important;
+    padding-left: 1px !important;
+    padding-right: 1px !important;
+}
+/*==== Customization Page Drag and Drop Panel ====*/
+.panel-arrowcontent{
+    background: linear-gradient(75deg, #010101 0%,#1b1b1b 30%,#0d0d0d 46%,#010101 50%,#0a0a0a 53%,#1b1b1b 70%,#010101 100%) !important;
+    color: #ccc !important;
+    min-width: 150px !important; 
+    border: 1px solid #0a84ff !important; 
+    border-radius: 3px !important;}
+
+
+.panel-arrowbox {
+    display: none !important;
+}
+
+#customization-panelHolder{
+    background: linear-gradient(75deg, #010101 0%,#1b1b1b 30%,#0d0d0d 46%,#010101 50%,#0a0a0a 53%,#1b1b1b 70%,#010101 100%) !important;
+    color: #0a84ff !important;
+    min-width: 150px !important;
+    height: 675px !important;
+    margin-top: 0px !important;
+    margin-left: 0px !important;
+    padding-right: 0px !important;
+    border: 1px solid #2fd281 !important; 
+    border-radius: 0px !important;
+}
+
+/*==== Drag Icons Here Here :after ====*/
+#customization-panelHolder > #widget-overflow-fixed-list::after{
+      content: 'Fuck Yeah!' !important;
+      color: #0a84ff !important;
+      display: block !important;
+    font-family: century schoolbook !important;
+    font-size: 16px !important;
+    text-decoration-line: underline !important;
+      font-weight: bolder !important;
+      margin-top: 50px !important;
+     margin-left: 25% !important;
+}
+
+#customization-footer {
+    background: #ccc !important;
+    background: linear-gradient(199deg, #010101 00%,#1b1b1b 30%,#0d0d0d 46%,#010101 50%,#0a0a0a 53%,#1b1b1b 70%,#010101 100%) !important;
+    border-top: 2px solid #2fd281 !important; 
+}
+
+
+/*==== Buttons at Bottom Customization Page ====*/
+.customizationmode-button{
+background: #ccc !important;
+background: linear-gradient(to bottom, #000000 0%,#1c1e23 50%,#000000 100%) !important;
+border: 1px solid #2fd281 !important; 
+border-radius: 5px !important;
+color: #0a84ff !important;
+
+}
+/*==== Theme, Density Popup menu Panels Buttons ====*/
+#customization-uidensity-menu > .panel-arrowcontainer > .panel-arrowcontent,
+#customization-lwtheme-menu > .panel-arrowcontainer > .panel-arrowcontent {
+background: #111 !important;
+background: linear-gradient(to bottom, #000000 0%,#1c1e23 50%,#000000 100%) !important;
+border: 1px solid #2fd281 !important; 
+border-radius: 5px !important;
+color: #0a84ff !important;
+
+}
+/*==== Panel Buttons ====*/
+.customization-uidensity-menuitem[active="true"], 
+.customization-uidensity-menuitem:hover:active, 
+.customization-lwtheme-menu-theme[active="true"], 
+.customization-lwtheme-menu-theme:hover:active {
+background-color: rgba(0,255,255,.08) !important;
+border: 1px solid #000 !important; 
+}
+/*==== Panel Buttons Hover ====*/
+.customization-uidensity-menuitem[active="true"], 
+.customization-uidensity-menuitem:hover, 
+.customization-lwtheme-menu-theme[active="true"], 
+.customization-lwtheme-menu-theme:hover {
+background-color: rgba(0,255,255,.1) !important;
+border: 1px solid #000 !important; 
+}
+/*==== Icons Panel Buttons Icons ====*/
+.customization-lwtheme-menu-theme > .toolbarbutton-icon,
+.menu-iconic-left{
+transform: scale(.85) !important;
+}
+ /*==== Manage Footer Button in themes popup menu ====*/
+.customization-lwtheme-menu-footeritem{
+ background: #000 !important;
+}
+/*==== Get More Themes Footer Button in themes popup menu ====*/
+.customization-lwtheme-menu-footeritem:last-child{
+ background: #000 !important;
+}
+/*==== Titlbar, Drag Space Buttons ====*/
+.customizationmode-checkbox {
+    -moz-appearance: none !important;
+    background: #111 !important;
+    background: linear-gradient(to bottom, #000000 0%,#1c1e23 50%,#000000 100%) !important;
+    border: 1px solid #2fd281 !important; 
+    border-radius: 5px !important;
+    color: #0a84ff !important;
+}
+
+/*==== Searchbar (If Needed) ====*/
+.searchbar-textbox{
+    background: #111 !important;
+    background: linear-gradient(to bottom, #000000 0%,#1c1e23 50%,#000000 100%) !important;
+border: 1px solid #2fd281 !important; 
+border-radius: 5px !important;
+color: #ccc !important;
+}
+
+#customization-footer {
+    height: 65px !important;
+    margin-top: -25px !important;
+    padding-left: 250px !important;}
+
+#customization-footer-spacer {
+    background: #000;
+    visibility: collapse;
+}
+
