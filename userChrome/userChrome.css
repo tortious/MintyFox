@@ -1,0 +1,647 @@
+@namespace url("http://www.mozilla.org/keymaster/gatekeeper/there.is.only.xul");
+@namespace html url("http://www.w3.org/1999/xhtml");
+/* namespace for HTML elements */
+
+@namespace xbl url("http://www.mozilla.org/xbl");
+/* namespace for XBL elements */
+
+@import url("Win10menu.css");
+@import url("CustomFavicons.as.css");
+@import url("overflowcustoms.as.css");
+/* GETTING JS XML ETC CAPABILITIES WITH THIS */
+
+#alltabs-button {
+    -moz-binding: url(data:text/xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIj8+DQo8IS0tIENvcHlyaWdodCAoYykgMjAxNyBIYWdnYWkgTnVjaGkNCkF2YWlsYWJsZSBmb3IgdXNlIHVuZGVyIHRoZSBNSVQgTGljZW5zZToNCmh0dHBzOi8vb3BlbnNvdXJjZS5vcmcvbGljZW5zZXMvTUlUDQogLS0+DQoNCjwhLS0gUnVuIHVzZXJDaHJvbWUuanMvdXNlckNocm9tZS54dWwgYW5kIC51Yy5qcy8udWMueHVsLy5jc3MgZmlsZXMgIC0tPg0KPGJpbmRpbmdzIHhtbG5zPSJodHRwOi8vd3d3Lm1vemlsbGEub3JnL3hibCI+DQogICAgPGJpbmRpbmcgaWQ9ImpzIiBleHRlbmRzPSJjaHJvbWU6Ly9nbG9iYWwvY29udGVudC9iaW5kaW5ncy90b29sYmFyYnV0dG9uLnhtbCNtZW51Ij4NCiAgICAgICAgPGltcGxlbWVudGF0aW9uPg0KICAgICAgICAgICAgPGNvbnN0cnVjdG9yPjwhW0NEQVRBWw0KICAgICAgICAgICAgICAgIGlmKHdpbmRvdy51c2VyQ2hyb21lSnNNb2QpIHJldHVybjsNCiAgICAgICAgICAgICAgICB3aW5kb3cudXNlckNocm9tZUpzTW9kID0gdHJ1ZTsNCiAgICAgICAgICAgICAgICANCiAgICAgICAgICAgICAgICB2YXIgY2hyb21lRmlsZXMgPSBGaWxlVXRpbHMuZ2V0RGlyKCJVQ2hybSIsIFtdKS5kaXJlY3RvcnlFbnRyaWVzOw0KICAgICAgICAgICAgICAgIHZhciB4dWxGaWxlcyA9IFtdOw0KICAgICAgICAgICAgICAgIHZhciBzc3MgPSBDY1snQG1vemlsbGEub3JnL2NvbnRlbnQvc3R5bGUtc2hlZXQtc2VydmljZTsxJ10uZ2V0U2VydmljZShDaS5uc0lTdHlsZVNoZWV0U2VydmljZSk7DQogICAgICAgICAgICAgICAgDQogICAgICAgICAgICAgICAgd2hpbGUoY2hyb21lRmlsZXMuaGFzTW9yZUVsZW1lbnRzKCkpIHsNCiAgICAgICAgICAgICAgICAgICAgdmFyIGZpbGUgPSBjaHJvbWVGaWxlcy5nZXROZXh0KCkuUXVlcnlJbnRlcmZhY2UoQ2kubnNJRmlsZSk7DQogICAgICAgICAgICAgICAgICAgIHZhciBmaWxlVVJJID0gU2VydmljZXMuaW8ubmV3RmlsZVVSSShmaWxlKTsNCiAgICAgICAgICAgICAgICAgICAgDQogICAgICAgICAgICAgICAgICAgIGlmKGZpbGUuaXNGaWxlKCkpIHsNCiAgICAgICAgICAgICAgICAgICAgICAgIGlmKC8oXnVzZXJDaHJvbWV8XC51YylcLmpzJC9pLnRlc3QoZmlsZS5sZWFmTmFtZSkpIHsNCiAgICAgICAgICAgICAgICAgICAgICAgICAgICBTZXJ2aWNlcy5zY3JpcHRsb2FkZXIubG9hZFN1YlNjcmlwdFdpdGhPcHRpb25zKGZpbGVVUkkuc3BlYywge3RhcmdldDogd2luZG93LCBpZ25vcmVDYWNoZTogdHJ1ZX0pOw0KICAgICAgICAgICAgICAgICAgICAgICAgfQ0KICAgICAgICAgICAgICAgICAgICAgICAgZWxzZSBpZigvKF51c2VyQ2hyb21lfFwudWMpXC54dWwkL2kudGVzdChmaWxlLmxlYWZOYW1lKSkgew0KICAgICAgICAgICAgICAgICAgICAgICAgICAgIHh1bEZpbGVzLnB1c2goZmlsZVVSSS5zcGVjKTsNCiAgICAgICAgICAgICAgICAgICAgICAgIH0NCiAgICAgICAgICAgICAgICAgICAgICAgIGVsc2UgaWYoL1wuYXNcLmNzcyQvaS50ZXN0KGZpbGUubGVhZk5hbWUpKSB7DQogICAgICAgICAgICAgICAgICAgICAgICAgICAgaWYoIXNzcy5zaGVldFJlZ2lzdGVyZWQoZmlsZVVSSSwgc3NzLkFHRU5UX1NIRUVUKSkNCiAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgc3NzLmxvYWRBbmRSZWdpc3RlclNoZWV0KGZpbGVVUkksIHNzcy5BR0VOVF9TSEVFVCk7DQogICAgICAgICAgICAgICAgICAgICAgICB9DQogICAgICAgICAgICAgICAgICAgICAgICBlbHNlIGlmKC9eKD8hKHVzZXJDaHJvbWV8dXNlckNvbnRlbnQpXC5jc3MkKS4rXC5jc3MkL2kudGVzdChmaWxlLmxlYWZOYW1lKSkgew0KICAgICAgICAgICAgICAgICAgICAgICAgICAgIGlmKCFzc3Muc2hlZXRSZWdpc3RlcmVkKGZpbGVVUkksIHNzcy5VU0VSX1NIRUVUKSkNCiAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgc3NzLmxvYWRBbmRSZWdpc3RlclNoZWV0KGZpbGVVUkksIHNzcy5VU0VSX1NIRUVUKTsNCiAgICAgICAgICAgICAgICAgICAgICAgIH0NCiAgICAgICAgICAgICAgICAgICAgfQ0KICAgICAgICAgICAgICAgIH0NCiAgICAgICAgICAgICAgICANCiAgICAgICAgICAgICAgICBzZXRUaW1lb3V0KGZ1bmN0aW9uIGxvYWRYVUwoKSB7DQogICAgICAgICAgICAgICAgICAgIGlmKHh1bEZpbGVzLmxlbmd0aCA+IDApIHsNCiAgICAgICAgICAgICAgICAgICAgICAgIGRvY3VtZW50LmxvYWRPdmVybGF5KHh1bEZpbGVzLnNoaWZ0KCksIG51bGwpOw0KICAgICAgICAgICAgICAgICAgICAgICAgc2V0VGltZW91dChsb2FkWFVMLCA1KTsNCiAgICAgICAgICAgICAgICAgICAgfQ0KICAgICAgICAgICAgICAgIH0sIDApOw0KICAgICAgICAgICAgXV0+PC9jb25zdHJ1Y3Rvcj4NCiAgICAgICAgPC9pbXBsZW1lbnRhdGlvbj4NCiAgICA8L2JpbmRpbmc+DQo8L2JpbmRpbmdzPg==);
+}
+
+/*####################################################
+ The import re favicons is the on with the code to add
+custom favicons for addons in the navbar  - just remember 
+that the icons need to png and in the chrome folder 
+#####################################################*/
+
+/*########################################		General Notes re the Entirety of the userchrome (aka tweeks, colors, and grayed out portions  ###############################*/
+
+/* Basically, the tabs have now occupied the menubar, which has been moved down to the bottom of the browser. Some of the grayed out stuff include :
+1) the rules re putting the navbar in the menubar (and thereby collapsing the menubar itself via display none; 
+2) the responsive theme that hides the stuff in navbar until hover; 
+3) there are [now] grayed out Tree Style Tab rules that allow for sidebar to display automatically by hovering near it, yet not showing any portion of it by default;
+4) Rules allowing the url bar to span the entire bar, and only shrink when needed due to addon placements;
+and I think that is it. Will add more if need be */
+
+/*##################################################################################################################################################################*/
+/*@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@	preliminary mods 	@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@*/
+
+/* remove titlebar buttons */
+#titlebar-min,
+#titlebar-max,
+#titlebar-close {
+    display: none !important;
+}
+
+#navigator-toolbox {
+    padding-top: 0px !important;
+}
+
+/* this hides top of navbar - not needed, but just matter of preference */
+#navigator-toolbox {
+    margin-top: -1px !important
+}
+
+/*remove the hover color/effort when mouse is hovering on navbar buttons*/
+.toolbarbutton-1 {
+    --toolbarbutton-hover-background: none !important;
+    --toolbarbutton-active-background: none !important;
+}
+
+/* remove gap/line between bottom of tabs and url bar */
+#nav-bar {
+    box-shadow: none !important;}
+
+/* Remove border above navbar */
+#navigator-toolbox::after {
+    border-bottom: 0px !important;
+}
+
+#back-button,
+#forward-button {
+    display: none
+}
+
+
+/*@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@   Preliminary Mods    @@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@*/
+/****************   Some Coloring   ***************/
+/*#navigator-toolbox>toolbar:not(#TabsToolbar):not(#toolbar-menubar):not(nav-bar) {
+    
+  /*  background: linear-gradient(to bottom, #000000 0%,#1c1e23 50%,#000000 100%) !important;
+}*/
+
+#nav-bar {
+    background: linear-gradient(to right, #000000 0%,#1b1b1b 31%,#0060df 46%,#0060df 50%,#0060df 53%,#1b1b1b 66%,#000000 100%) !important;
+}
+
+#TabsToolbar {background:radial-gradient(circle, #000000 20%,#0060df 30%,#000000 100%, #000000 10%) !important;}
+
+#PlacesToolbar {
+    background: radial-gradient(circle, #000000 20%,#0060df 80%,#000000 100%) !important;
+   /* background: linear-gradient(180deg, #020202 0%,#1a1a1a 30%,#87cefa 46%,#010101 50%,#87cefa 53%,#1a1a1a 70%,#020202 100%) !important;*/
+}
+
+.titlebar-placeholder {display: none !important;}
+
+/*  removes the alltabs button in the tabs bar  */
+#alltabs-button {
+    display: none !important;
+}
+
+/*
+.tabbrowser-arrowscrollbox > .scrollbutton-up,
+.tabbrowser-arrowscrollbox > .scrollbutton-down {
+    display: none !important;
+}*/
+/*##################################    These mods place the tabstoolbar under the navbar & autohides them  ###############################*/
+
+#nav-bar {
+    -moz-box-ordinal-group: 1 !important;
+    height: 100% !important;
+    z-index: 3 !important;
+}
+
+#TabsToolbar {
+    display: flex !important;
+    height: 30px !important;
+    width: -moz-available !important;
+    position: fixed !important;
+    margin-bottom: -30px !important;
+    bottom: 0px !important;
+    transition: all 0.4s ease 0s !important;
+    -moz-box-ordinal-group: 5 !important
+}
+
+#PersonalToolbar {-moz-box-ordinal-group: 3 !important;}
+
+#navigator-toolbox:hover>#TabsToolbar {
+    margin-top: 0px !important;
+    margin-bottom: 0px !important;
+    transition: all 0.4s ease 0s !important;
+}
+
+
+/* adjust the tab counter addon so its lower like the tabs */
+toolbarbutton#_8e671754-fc9e-41c0-bb7c-0f575c4127d6_-browser-action.toolbarbutton-1.chromeclass-toolbar-additional.badged-button.webextension-browser-action
+{
+    margin-bottom: 0px !important;
+    margin-top: 2px !important;
+    transform: scale(1.1) !important;
+}
+
+.tabbrowser-tab {
+    max-height: 30px !important;
+    margin-bottom: 0px !important;
+    padding-top: 0px !important;
+    background: transparent !important;
+}
+
+/*Make tab content a bit higher so it looks less cramped*/
+.tabbrowser-tab .tab-content { 
+margin-bottom: -4px !important; }
+
+
+/*******************this is unrelated to the stuff above ************/
+#tabbrowser-tabs[overflow] .tabbrowser-tab[pinned]+.tabbrowser-tab:not([pinned]),
+#tabbrowser-tabs[overflow] .tabbrowser-tab:not([pinned])[first-visible-tab],
+#tabbrowser-tabs[overflow] {
+    margin-left: -28px !important;
+}
+
+#tabbrowser-tabs[overflow] .scrollbox-innerbox {
+    margin-left: 28px !important;
+}
+
+#tabbrowser-tabs[overflow] .scrollbutton-up {
+    visibility: hidden;
+}
+
+/********** boomarkstoolbar/personal bar mods   **********************/
+
+#PersonalToolbar .bookmark-item > .toolbarbutton-text  {
+  display: none !important;
+}
+
+#PersonalToolbar .bookmark-item > .toolbarbutton-icon  {
+  margin-inline-end: 0px !important;
+    }
+
+
+#PlacesToolbar {
+    height: 27px !important;
+    margin-bottom: -2px !important;
+    margin-left: -5px !important;
+    margin-right: -5px !important;
+    
+}
+
+#PersonalToolbar {
+    background: transparent !important;
+    height: 25px !important;
+    
+}
+
+
+#navigator-toolbox:hover>#PersonalToolbar {
+    margin-top: 0px !important;
+    transition: all 0.9s ease 0s !important;
+}
+
+ #PersonalToolbar, #PersonalToolbar:hover {
+    margin-top: -25px !important;
+    transition: all 0.9s ease 0s !important;
+}
+/***************************************************************************************/
+/*#############################################################################
+remove bottom toolbar - reason it is                ###########################
+there is bc of the uc.js script in ur folder        ###########################*/
+#bottom-toolbar {display: none !important;}/*       ###########################
+##########################################################################*/
+
+
+/******************	statuspanel stuff	********************/
+#statuspanel {
+    background-color: transparent !important;
+    color: #0a84ff !important;
+    border: none !important;
+    bottom: 0px !important;
+    height: 20px !important;
+    /*padding-bottom: 25px !important;*/
+    max-width: 50% !important;
+    /* Change the value to suite your needs */
+    transition: none !important;
+}
+
+#statuspanel-label {
+    background: transparent !important;
+}
+
+#statuspanel {
+    opacity: 1 !important;
+}
+
+/*#main-window:not([sizemode="fullscreen"]) #statuspanel[inactive] #statuspanel-inner::before {
+    background: linear-gradient(to bottom, #000000 0%,#1c1e23 50%,#000000 100%) !important;
+    color: #0a84ff !important;
+    font-family: sans-seriff !important;
+    font-size: 16px !important;
+    font-weight: bold !important;
+    font-variant: all-small-caps !important;
+    bottom: 0px !important;
+    right: 0px !important;
+    padding-bottom: 5px !important;
+    padding-top: 6px !important;
+    padding-left: 6px !important;
+    padding-right: 8px !important;
+    position: fixed !important;
+    content: "~ tortious ~" !important;
+}
+*/
+#statuspanel[inactive] #statuspanel-label {
+    display: none !important;
+}
+
+#statuspanel #statuspanel-inner {
+    background-color: transparent !important;
+    border: none !important;
+    height: 20px !important;
+}
+
+#statuspanel #statuspanel-label {
+    background: linear-gradient(to bottom, #000000 0%,#1c1e23 50%,#000000 100%) !important;
+    border: none !important;
+    color: #0a84ff !important;
+}
+
+
+/**********************************************Mods that allow for urlbar to span the entire navbar and shrink when I hover **************************************/
+/* bindings code that shortens url until you hover; then it display full name */
+#urlbar {
+    -moz-binding: url("bindings.xml#urlbar") !important;
+}
+/************navbar width as re allowing url bar to span the entire navbar/top row of the window */
+#navbar {
+    min-width: 1000px
+}
+#urlbar,
+.urlbar-textbox-container {
+    min-width: 1000px
+}
+#nav-bar {
+    min-width: var(--navbar-min-width);
+    -moz-box-flex: 1;
+}
+#urlbar,
+.urlbar-textbox-container {
+    min-width: var(--navbar-min-width);
+    -moz-box-flex: 1;
+}
+/*********************************************************************Additional/The Rest of the urlbar Mods********************************************************/
+
+#urlbar {
+    height: 30px !important;
+    margin-bottom: 0px !important;
+    margin-top: 0px !important;
+}
+#urlbar {
+    background: transparent !important;
+    /*background: linear-gradient(to bottom, #000000 0%,#1c1e23 50%,#000000 100%) !important;
+    */font-family: trebuchet ms  !important;
+    font-size: 16px !important;
+    font-weight: bold !important;
+    text-align: center;
+    color: #2fd281 !important;
+    border: 0px !important;
+    
+}
+/* box-shadow: none !important; */
+#urlbar-container {
+    padding-top: 1px !important;
+}
+
+/* remove reader button in urlbar */
+#reader-mode-button {
+    display: none !important;
+}
+/* NOTE: this removes the entire dropdown when typing in the urlbar - if you want suggestions or anything displayed under the urlbar, then remove this code */
+#PopupAutoCompleteRichResult {
+    display: none !important;
+}
+
+/* remove identity box located within urlbar box and on the far left side */
+#identity-box {
+    display: none !important;
+}
+
+/* remove urlbar history dropdown */
+.urlbar-history-dropmarker {
+    display: none !important
+}
+
+/*disable url stuff */
+#pageActionButton,
+#pocket-button-box,
+ar-button,
+.autocomplete-history-dropmarker,
+#identity-icon-labels {
+    display: none !important;
+}
+
+/* hides lock inside url */
+#urlbar[pageproxystate="valid"]>#identity-box.verifiedDomain>#connection-icon,
+#urlbar[pageproxystate="valid"]>#identity-box.verifiedIdentity>#connection-icon,
+#urlbar[pageproxystate="valid"]>#identity-box.mixedActiveBlocked>#connection-icon {
+    display: none !important;
+}
+
+/* hide search engines  on url dropdown*/
+#PopupSearchAutoComplete .search-one-offs,
+#PopupSearchAutoComplete .search-panel-header {
+    display: none !important;
+}
+
+/************custom favicon for the bookmark star in urlbar*/
+#star-button {
+    list-style-image: url("a7.png") !important;
+    height: 26px !important;
+    width: 28px !important;
+    padding-top: 0px !important;
+    }
+
+/* I forget what part this hides but keep it */
+#pageActionSeparator {
+    display: none !important
+}
+
+/* ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^*/
+/* ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^TWEEKS FROM THE MINIMAL RESPONSIVE THEME GITHUB ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^*/
+/* ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^*/
+:root:not([customizing]) #nav-bar toolbarbutton {
+    margin-left: -28px !important;
+    /* margin-right: 28px !important; */
+    opacity: 0 !important;
+    transform: scale(.85, .85) !important;
+    pointer-events: none !important;
+    transition: all 100ms var(--animation-easing-function) !important;
+}
+
+:root:not([customizing]) :hover>#nav-bar toolbarbutton,
+:root:not([customizing]) #navigator-toolbox:focus-within #nav-bar toolbarbutton,
+:root:not([customizing]) :hover>#titlebar toolbarbutton {
+    transform: scale(1, 1) !important;
+    opacity: 1 !important;
+    margin-left: 0 !important;
+    margin-right: 0 !important;
+    pointer-events: auto !important;
+}
+/* ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^*/
+/* ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^END_RESPONSIVE_THEME_TWEEEKS^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^*/
+/* ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^*/
+
+/*#############################################	tab mods 	###########################################*/
+/* hide stuff */
+.tab-close-button, .tab-loading-burst, .tab-label {display: none !important;}
+
+/*	Hide tab close button	*/
+#TabsToolbar .close-icon {display: none !important;}
+
+/*remove line above tabs*/
+.tab-line {display: none !important}
+
+/* remove line between tabs */
+.tabbrowser-tab::after,
+.tabbrowser-tab::before {display: none !important;}
+
+/*Favconize Tabs*/
+.tab-label-container {display: none;}
+.tabbrowser-tab[fadein] {
+    max-width: 35px !important;
+    min-width: 35px !important;}
+.tab-icon-image {margin-inline-end: 0px !important;}
+.tab-content {padding: -9px !important;}
+
+/*make default tab icon greyscale*/
+.tab-icon-image {
+    filter: grayscale(100%) !important;
+    opacity: .6 !important;
+}
+
+/*make selected tab icon normal color*/
+.tabbrowser-tab[selected] .tab-icon-image {
+    filter: none !important;
+    opacity: 1 !important;
+}
+
+/*Remove highlighting of current tab*/
+.tabbrowser-tab [selected] {
+    background: none !important
+}
+
+/*DISABLE WHITE FLASH OF DEATH*/
+#browser vbox#appcontent tabbrowser,
+#content,
+#tabbrowser-tabpanels,
+browser[type=content-primary],
+browser[type=content]>html {
+    background: var(--in-content-page-background) !important
+}
+
+
+
+/*****************************************************************Menu Mods********************************************************/
+#PanelUI-menu-button {
+    list-style-image: url("a8.png") !important;
+    /* transform: scale(1, 2) !important; */
+}
+
+/* add separator between main menu button on toolbar and the closest button to the right of it*/
+#PanelUI-menu-button:after {
+    content: '';
+    width: 3px;
+    height: 30px;
+    display: flex;
+}
+
+/* Remove containers name and symbol */
+#userContext-label, #userContext-indicator, #identity-icon {display: none !important;}
+
+/* remove thin white line to left of menu button */
+#PanelUI-button {
+    border-left: none !important;
+}
+
+/* remove padding next to hamburger menu */
+#PanelUI-button {
+    border-image-slice: 0 !important;
+}
+
+
+/*******************************************************************	Sidebar Mods - mild		***********************************************************************/
+#sidebar-header {display: none;}
+#sidebar-splitter {display: none !important}
+/************   Coloring of Sidebar Stuff   *****************/
+#viewButton {
+    /*background: transparent !important;
+    */color: #0a84ff !important;
+}
+#sidebar,
+#bookmarksPanel,
+#bookmarks-view,
+#history-panel,
+#historyTree {
+    background: linear-gradient(75deg, #010101 0%,#1b1b1b 30%,#0d0d0d 46%,#010101 50%,#0a0a0a 53%,#1b1b1b 70%,#010101 100%) !important;
+    color: #2fd281 !important;
+}
+/********   coloring the searchbox in the sidebar   ************/
+.sidebar-search-container.tabs-container.sync-state.selected .search-box,
+hbox#sidebar-search-container textbox#search-box {
+  -moz-appearance: none!important;
+  background-color: var(--in-content-box-background)!important;
+  color: #2fd281!important;
+  min-height: 22px!important;
+  padding: 0 0 0 4px!important;
+  border: none !important; /*
+  border-color: var(--in-content-box-border-color)!important;
+  border-radius: 3px!important*/
+}
+
+/***************    this removes the hover color and keeps it the same when selected    ****************/
+.sidebar-placesTreechildren::-moz-tree-row(selected),
+.sidebar-placesTreechildren::-moz-tree-row(hover),
+.sidebar-placesTreechildren::-moz-tree-cell(hover),
+.sidebar-placesTreechildren::-moz-tree-row(selected),
+.sidebar-placesTreechildren::-moz-tree-cell-text(hover),
+.sidebar-placesTreechildren::-moz-tree-cell-text(selected) {
+    background: var(--in-content-box-background) !important;
+    border: none !important
+    }
+
+
+
+
+
+
+
+/*******************************************************************************************************/
+/* show favicon for tabs without favicons */
+.tabbrowser-tab:not([pinned]) .tab-icon-image:not([src]) {
+    display: inline !important;
+}
+
+#main-window .tabbrowser-tab[pinned] .tab-icon-image:not([src]),
+#main-window .tabbrowser-tab:not([pinned]) .tab-icon-image:not([src]) {
+    list-style-image: url('frella.png') !important;
+}
+
+.tabbrowser-tab:not([pinned])[busy] .tab-icon-image {
+    display: none !important;
+}
+
+/****************************Misc Removal of Shit   */
+/* remove other stuff */
+
+#appMenu-popup vbox {
+    margin-left: -4px !important;
+    margin-top: 4px !important;
+}
+
+#appMenu-popup label {color: #2fd281}
+#appMenu-popup vbox {color: #0a84ff !important;}
+#appMenu-popup toolbarseparator {display: none}
+
+#appMenu-mainView {
+    background: linear-gradient(65deg, #010101 0%,#1b1b1b 30%,#0d0d0d 46%,#010101 50%,#0a0a0a 53%,#1b1b1b 70%,#010101 100%) !important;
+}
+#PanelUI-developer {
+    background: linear-gradient(65deg, #010101 0%,#1b1b1b 30%,#0d0d0d 46%,#010101 50%,#0a0a0a 53%,#1b1b1b 70%,#010101 100%) !important;}
+#PanelUI-developer #PanelUI-developerItems menuseparator {background: #0a84ff;}
+#PanelUI-developer .panel-header {display: none !important;}
+#PanelUI-helpItems, .panel-header {background: linear-gradient(65deg, #010101 0%,#1b1b1b 30%,#0d0d0d 46%,#010101 50%,#0a0a0a 53%,#1b1b1b 70%,#010101 100%) !important;}
+#PanelUI-helpView .panel-header {display: none !important;}
+#appMenu-libraryView {background: linear-gradient(65deg, #010101 0%,#1b1b1b 30%,#0d0d0d 46%,#010101 50%,#0a0a0a 53%,#1b1b1b 70%,#010101 100%) !important;}
+#appMenu-libraryView .panel-header {display: none !important;}
+#appMenu-library-pocket-button {display: none !important;}
+#PanelUI-bookmarks.PanelUI-subView vbox.panel-subview-body, #PanelUI-history.PanelUI-subView vbox.panel-subview-body, #PanelUI-downloads.PanelUI-subView vbox.panel-subview-body 
+{
+    background: linear-gradient(65deg, #010101 0%,#1b1b1b 30%,#0d0d0d 46%,#010101 50%,#0a0a0a 53%,#1b1b1b 70%,#010101 100%) !important;
+}
+
+
+
+
+#appMenu-fxa-container,
+#appMenu-zoom-controls,
+#appMenu-fxa-label,
+#appMenu-edit-controls,
+#appMenu-print-button,
+#appMenu-more-button,
+#appMenu-new-window-button,
+#appMenu-private-window-button,
+#appMenuRestoreLastSession,
+#appMenu-open-file-button,
+#appMenu-save-file-button,
+#appMenu-find-button {
+    display: none;
+}
+
+/* remove stuff from the context/right-click menu*/
+
+#context-navigation,
+#context-viewinfo,
+#context-viewsource,
+#context-sendpagetodevice,
+#context-pocket,
+#context-savepage,
+#context-sep-navigation,
+#context-sep-sendpagetodevice,
+#context-sep-viewbgimage,
+#context-sep-viewsource,
+#inspect-separator {
+    display: none !important
+}
+
+
+/*#################################################     overflow shit   ##################################################*/
+/*********************************  Overflow Menu  MODS    *****************************************/
+/* Changes color and size of the overflow icon */
+#nav-bar-overflow-button { list-style-image: url("a17.png") !important;}
+
+/* Change size of favicons within overflow menu */
+#widget-overflow-fixed-list toolbarbutton .toolbarbutton-badge-stack,
+#widget-overflow-fixed-list .toolbarbutton-icon {
+    width: 20px !important;
+    height: 20px !important;
+}
+/* Customize rows and columns for number and size of rows/cols you want */
+#widget-overflow-fixed-list {
+    display: grid;
+    grid-template-rows: 40px 40px;   /* two rows, the second one taller */
+    grid-template-columns: 35px 35px 35px 35px 35px 35px 35px [col-end];    /* seven columns, with an anchorpoint at the end */
+}
+
+/* Constrains width of display of addons when clicked on toolbar/navbar*/
+#widget-overflow-mainView {
+    background: #ccc !important;
+    background: linear-gradient(75deg, #010101 0%,#1b1b1b 30%,#0d0d0d 46%,#010101 50%,#0a0a0a 53%,#1b1b1b 70%,#010101 100%) !important;   
+    max-width: 320px !important;
+    min-width: 320px !important;
+}
+
+/* Makes search bar take up whole top row */
+#widget-overflow-fixed-list #search-container {
+    grid-row-start: 1;
+    grid-row-end: span 1;
+    grid-column-start: 1;
+    grid-column-end: span col-end;
+}
+/* Important to make the search bar display */
+#widget-overflow-fixed-list #searchbar {
+    min-width: 320px !important;
+}
+/* Adjusts spacing */
+#widget-overflow-fixed-list .toolbarbutton-1 {
+    margin-top: 0px !important;
+    margin-bottom: 5px !important;
+}
+#widget-overflow-fixed-list {
+    margin-top: -10px !important;
+}
+
+/* remove unecessary shit from "customize" screen */
+#customization-header, #customization-panelHeader,
+#overflowMenu-customize-button, #customization-panelDescription {display: none;}
+
+/* Hides labels */
+#widget-overflow-fixed-list .toolbarbutton-1>.toolbarbutton-text {
+    display: none !important;
+}
+
+
+
+
