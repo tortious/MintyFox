@@ -1,0 +1,62 @@
+/*#####################################################################################################################################################
+#####################################################	Custom favicons for 	#######################################################
+#########################################################################################################################################################
+#########################################################################################################################################################
+*//* THIS METHOD WORKS - to swap out addon favicons for custom images located in the chrome folder - woohoo */			
+
+/*	ONETAB	*/  
+toolbarbutton#extension_one-tab_com-browser-action {list-style-image: url("a18.png") !important;}
+/*	BITWARDEN	*/   
+toolbarbutton#_446900e4-71c2-419f-a6a7-df9c091e268b_-browser-action {list-style-image: url("a6.png") !important;}
+/*	UBLOCK ORIGIN	*/		
+toolbarbutton#ublock0_raymondhill_net-browser-action {list-style-image: url("a22.png") !important;}
+/*	DECENTRALEYES	*/				
+toolbarbutton#jid1-bofifl9vbdl2zq_jetpack-browser-action  {list-style-image: url("a28.png") !important;}
+/*	NUKE_ANYTHING_ENHANCED	*/				
+toolbarbutton#_1ced4832-f06e-413f-aa14-9eb63ad40ace_-browser-action  {list-style-image: url("a13.png") !important;}
+/*	DISCONNECT	*/		
+toolbarbutton#\32 _0_disconnect_me-browser-action  {list-style-image: url("sonic11.png") !important;}
+/*	DUCKDUCKGO	*/
+toolbarbutton#jid1-zadieub7xozojw_jetpack-browser-action  {list-style-image: url("32.png") !important;}
+/*	COOKIE AUTO DELETE	*/				
+toolbarbutton#cookieautodelete_kennydo_com-browser-action  {list-style-image: url("a34.png") !important;}
+/*	PRIVACY POSSOM	*/   
+toolbarbutton#woop-noopscoopsnsxq_jetpack-browser-action  {list-style-image: url("a10.png") !important;}
+/*	DARK MODE */     
+toolbarbutton#_174b2d58-b983-4501-ab4b-07e71203cb43_-browser-action  {list-style-image: url("a12.png") !important;}
+/*	FOXYTAB	*/     
+toolbarbutton#foxytab_eros_man-browser-action  {list-style-image: url("shadow-warrior.png") !important;}
+/*	RESTART BUTTON */     
+toolbarbutton#restart-button  {list-style-image: url("a1.png") !important;}
+/*	AUTOPLAY BUTTON */
+toolbarbutton#autoplay-toggle-button  {list-style-image: url("a14.png") !important;}
+/*	browser-toolbox-button */
+toolbarbutton#browser-toolbox-button  {list-style-image: url("a2.png") !important;}
+/*	MINIMAL TO DO LIST	*/
+toolbarbutton#addon_minimalist_com-browser-action  {list-style-image: url("a5.png") !important;}
+/*	NOTE TAKER	*/
+toolbarbutton#note-taker_r01-browser-action  {list-style-image: url("a27.png") !important;}
+/*	TAB DEQUE	*/
+toolbarbutton#tabdeque_sblask-browser-action  {list-style-image: url("a5.png") !important;}
+/*	TOTALLY NOT PANORAMA	*/	
+toolbarbutton#panorama_nyordanov_com-browser-action  {list-style-image: url("a25.png") !important;}
+/*	ABOUTCONFIG-TOOLBARBUTTON	*/
+toolbarbutton#aboutconfig-ToolBarButton  {list-style-image: url("64 game.png") !important;}
+/*	CLOSE-TABS-BUTTON	*/
+toolbarbutton#Close-Tabs-button  {list-style-image: url("a33.png") !important;}
+/*	OPEN  CHROME FOLDER	*/
+toolbarbutton#open-chromefolder  {list-style-image: url("rubic128.png") !important;}
+/*	PREFERENCES BUTTON	*/
+toolbarbutton#Einstellungen-button  {list-style-image: url("a35.png") !important;}
+/*  ADNAUSEUM   */
+toolbarbutton#adnauseam_rednoise_org-browser-action  {list-style-image: url("a23.png") !important;}
+/*  CLOUDHOLE   */
+toolbarbutton#_cloudhole-browser-action {list-style-image: url ("lock.png") !important}
+/*  CLEAR BROWSING DATA */
+toolbarbutton#_ce9f4b1f-24b8-4e9a-9051-b9e472b1b2f2_-browser-action {list-style-image: url("123.png") !important}
+/*  PUBLIC IP DISPLAY   */  
+toolbarbutton#jid0-kir41bqbr1lrsxh7otziyzsroxw_jetpack-browser-action {list-style-image: url("Arch1.png") !important}
+/*  TAB LIST BOARD  */
+toolbarbutton#tablistboard_azisava_sakura_ne_jp-browser-action {list-style-image: url("a36.png") !important}
+/*  PAGE CACHE ARCHIVER */
+toolbarbutton#archiver_menu_com-browser-action {list-style-image: url("a37.png") !important}
